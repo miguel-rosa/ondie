@@ -32,7 +32,7 @@ const Home = () => {
           'pk.eyJ1IjoibWlndWVsLXJvc2EiLCJhIjoiY2tianVva2tyMHN6MTJ1bXl3cjlibWFycCJ9.ui5W3hZKyJy5AkJq7qZ5hQ'
       });
 
-      const [initialPosition, setInitialPosition] = useState([0,0]);
+      const [initialPosition, setInitialPosition] = useState([-46.786289,-23.516606]);
       
       useEffect(() => {
         navigator.geolocation.getCurrentPosition(position => {
