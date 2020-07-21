@@ -1,46 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import ReactMapboxGl, {Layer, Feature} from 'react-mapbox-gl';
 
+import api from '../../services/api'
+
 const Home = () => {
-
-
-    const objectMaps = [
-        {
-            "longitude":-46.777949,
-            "latitude":-23.509990,
-            "id":1
-        },
-        {
-            "longitude":-46.786289,
-            "latitude":-23.516606, 
-            "id":2
-        },
-        {
-            "longitude":-46.7768143,
-            "latitude":-23.5496397,
-            "id":3
-        },
-        {
-            "longitude":-46.7768749,
-            "latitude":-23.5496396,
-            "id":4
-        }
-    ]
 
     const Map = ReactMapboxGl({
         accessToken:
           'pk.eyJ1IjoibWlndWVsLXJvc2EiLCJhIjoiY2tianVva2tyMHN6MTJ1bXl3cjlibWFycCJ9.ui5W3hZKyJy5AkJq7qZ5hQ'
-      });
+    });
 
-      const [initialPosition, setInitialPosition] = useState([-46.786289,-23.516606]);
-      
-      useEffect(() => {
-        navigator.geolocation.getCurrentPosition(position => {
-            
+    const [initialPosition, setInitialPosition] = useState([-46.786289,-23.516606]);
+    const [companies, setCompanies] = useState([]);
+        
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(position => {        
             setInitialPosition([position.coords.longitude, position.coords.latitude])
             console.log(initialPosition)
         });
-      }, [initialPosition])
+    }, [initialPosition])
+
+    useEffect( () => {
+        api.get('/').then( response => {
+            setCompanies(response.data)
+            console.log(response.data)
+        })
+    }, [])
 
     return(
         <div>
@@ -61,8 +46,8 @@ const Home = () => {
                     'circle-stroke-opacity': 1}}
                 >
                     {
-                        objectMaps.map( map => (
-                            <Feature coordinates={[map.longitude, map.latitude]} />
+                        companies.map( map => (
+                            <Feature coordinates={[map.acf.longitude, map.acf.latitude]} />
                         ))
                     }
                 </Layer>
