@@ -10,30 +10,84 @@
 @media screen and (min-width:768px){
     #SideWidget{
         left:0;
-        border-radius:0 20px 20px 0;
+        border-radius:0 10px 10px 0;
         
         height:100%;
     }
     #SideWidget-Wrapper{
-        padding:20px 40px;
-    }
-}
-@media screen and (max-width:768px){
-    #SideWidget{
-        bottom:0;
-        border-radius:20px 20px 0 0;
-     
-        height:25%;
-        width:100%;
-    }
-    #SideWidget-Wrapper{
-        padding:10px 20px;
+        
     }
 }
 
+
+.SideWidget-Header{
+    text-align:left;
+    border-bottom:1px solid #f1f1f1;
+    padding:20px 40px
+}
 .SideWidget-Point{
     text-align:left;
     font-size: 20px;
     font-weight: 700;
-    
+    padding:40px 40px;
+    border-bottom:1px solid #f1f1f1;
+}
+.SideWidget-Point p,
+.SideWidget-Point h2{
+margin:0;
+}
+
+.SideWidget-Point h2{
+    font-size:18px;
+}
+
+.SideWidget-Point p{
+    font-size:15px;
+    font-weight:400;
+    padding:10px 0 20px
+}
+
+.SideWidget-WhatsApp,
+.SideWidget-Email{
+    border:2px solid;
+    border-radius:3px;
+    padding:6px 12px;
+    border-color:#158aea;
+    font-weight:500;
+}
+.SideWidget-WhatsApp{
+    background:#158aea;
+    color:white;
+    margin-right:10px;
+}
+.SideWidget-Email{
+    background:white;
+    color:#158aea;
+ 
+}
+
+@media screen and (max-width:768px){
+    #SideWidget{
+        bottom:0;
+        border-radius:10px 10px 0 0;
+     
+        height:fit-content;
+        width:100%;
+    }
+    #SideWidget-Wrapper{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x:scroll;
+        scroll-snap-type: x mandatory;
+    }
+    .SideWidget-Header{
+        padding: 10px 40px;
+    }
+    .SideWidget-Point {
+        min-width:100vw;
+        scroll-snap-align: start;
+        padding: 10px 40px 20px 40px;
+    }
+        
 }
