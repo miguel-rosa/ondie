@@ -13,9 +13,23 @@
         border-radius:0 10px 10px 0;
         
         height:100%;
+        width:25%;
     }
     #SideWidget-Wrapper{
-        
+        height:83%;
+        overflow-x: scroll;
+    }
+    .SideWidget-Header{
+        height:17%;
+    }
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+     
+     
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background:#bfbfbf
     }
 }
 
@@ -23,7 +37,8 @@
 .SideWidget-Header{
     text-align:left;
     border-bottom:1px solid #f1f1f1;
-    padding:20px 40px
+    padding:20px 40px;
+
 }
 .SideWidget-Point{
     text-align:left;
@@ -80,14 +95,19 @@ margin:0;
         flex-wrap: nowrap;
         overflow-x:scroll;
         scroll-snap-type: x mandatory;
+        
     }
     .SideWidget-Header{
         padding: 10px 40px;
     }
     .SideWidget-Point {
         min-width:100vw;
+        max-width:100vw;
         scroll-snap-align: start;
         padding: 10px 40px 20px 40px;
+    }
+    .SideWidget-Point p{
+        width:80%;
     }
         
 }

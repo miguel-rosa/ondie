@@ -15,8 +15,21 @@ const SideWidget = (props) => {
                             <h2>{point.title.rendered}</h2>
                             <p>{point.acf.description}</p>
                             <div>
-                                <a className="SideWidget-WhatsApp" target="_blank" target="_blank" rel="noopener noreferrer" href={`https://wa.me/${point.acf.whatsapp}`}>Whatsapp</a>
-                                <a className="SideWidget-Email" target="_blank" rel="noopener noreferrer" href={`mailto:${point.acf.email}`}>Email</a>
+                                <a 
+                                   className="SideWidget-WhatsApp" 
+                                   target="_blank"  
+                                   rel="noopener noreferrer" 
+                                   href={`https://wa.me/${point.acf.whatsapp}`}
+                                >
+                                    Whatsapp</a>
+                                <a 
+                                    className="SideWidget-Email" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    href={`mailto:${point.acf.email}`}
+                                >
+                                    Email
+                                </a>
                             </div>
                         </div>
                     ))
